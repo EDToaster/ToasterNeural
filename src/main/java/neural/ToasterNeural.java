@@ -84,7 +84,8 @@ public class ToasterNeural implements Serializable {
 			if (i == 0) {
 				errors = target.sub(layer);
 			} else {
-				errors = lastErrors.mult(transitionLayer);
+				Matrix prev = cWeights[cWeights.length - i];
+				errors = lastErrors.mult(prev.transpose());
 			}
 
 			lastErrors = errors;
