@@ -23,8 +23,12 @@ public class SimpleDemo {
         // Takes user input and outputs a prediction
         Scanner sc = new Scanner(System.in);
         while (true) {
-            double input = sc.nextDouble();
-            System.out.println(tn.predict(input).getResult().get(0, 0)); // prints out result
+            try {
+                double input = sc.nextDouble();
+                System.out.println(tn.predict(input).getResult().get(0, 0)); // prints out result
+            } catch (Exception e) {
+                break;
+            }
         }
 
         /*
